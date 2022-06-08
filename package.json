@@ -4,8 +4,9 @@
   "description": "This repository is the part of nodejs-assignments https://github.com/AlreadyBored/nodejs-assignments",
   "type": "module",
   "scripts": {
-    "args": "node src/cli/args",
-    "env": "node src/cli/env",
+    "args": "node src/cli/args --first First --last Last",
+    "env": "npx cross-env RSS_first_name=FirstNmae RSS_last_name=LastName node src/cli/env",
+
     "cp": "node src/cp/cp",
     "copy": "node src/fs/copy",
     "create": "node src/fs/create",
@@ -13,6 +14,10 @@
     "list": "node src/fs/list",
     "read": "node src/fs/read",
     "rename": "node src/fs/rename",
+
+    "modules": "node src/modules/cjsToEsm.mjs",
+
+    "hash": "node src/hash/calchash.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
