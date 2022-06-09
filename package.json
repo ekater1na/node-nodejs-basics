@@ -18,6 +18,11 @@
     "modules": "node src/modules/cjsToEsm.mjs",
 
     "hash": "node src/hash/calchash.js",
+
+    "read-str": "node src/streams/read.js",
+    "transform": "node src/streams/transform.js",
+    "write": "node src/streams/write.js",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
