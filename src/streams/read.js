@@ -3,7 +3,7 @@ import { pipeline } from "stream";
 import { getPathFromFiles } from "./../utils/getPathFromFiles.js";
 
 export const read = async () => {
-  const path = getPathFromFiles(import.meta.url, "fileToRead1.txt");
+  const path = getPathFromFiles(import.meta.url, "fileToRead.txt");
 
   const readableStream = createReadStream(path, "utf8");
 

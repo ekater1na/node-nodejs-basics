@@ -23,6 +23,10 @@
     "transform": "node src/streams/transform.js",
     "write": "node src/streams/write.js",
 
+    "compress": "node src/zip/compress.js",
+    "decomress": "node src/zip/decompress.js",
+
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
