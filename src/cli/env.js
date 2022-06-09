@@ -1,13 +1,14 @@
-import process from 'process';
+import process from "process";
 
 export const parseEnv = () => {
-    // Write your code here
-    const prefix = 'RSS_';
-
-    for (let key in process.env) {
-        console.log(`${prefix}${key}=${process.env[key]}`);
-    }
+  const rssVariables = Object.entries(process.env).reduce(
+    (acc, [key, value]) => {
+      if (key.startsWith("RSS_")) acc.push(`${key}=${value}`);
+      return acc;
+    },
+    []
+  );
+  console.log(rssVariables.join("; "));
 };
 
-parseEnv(process.env)
-
+parseEnv();

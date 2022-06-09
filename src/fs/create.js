@@ -1,19 +1,17 @@
-import fs from "fs";
+import { writeFile } from "fs/promises";
+import { getPathFromFiles } from './../utils/getPathFromFiles.js'
+
 
 export const create = async () => {
-  // Write your code here
+  const src = getPathFromFiles(import.meta.url, "fresh.txt") ;
+  const content = "I am fresh and young";
+  const message = "FS operation failed";
 
-  const path = "src/fs/files/fresh.txt";
-  if (fs.existsSync(path)) {
-    console.error(new Error("FS operation failed"));
+  try {
+    await writeFile(src, content, { flag: "wx" });
+  } catch (err) {
+    throw new Error(message);
   }
-  await fs.writeFile(
-    "src/fs/files/fresh.txt",
-    "I am fresh and young",
-    function (error) {
-      if (error) console.error(new Error("FS operation failed"));
-    }
-  );
 };
 
 create();

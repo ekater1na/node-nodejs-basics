@@ -1,11 +1,17 @@
 import process from "process";
 
 export const parseArgs = () => {
-    // Write your code here
-    let value = process.argv[2];
-    let value2 = process.argv[3];
-
-    console.log(`propName is ${value}, prop2Name is ${value2}`);
+  const userInputArgs = process.argv.slice(2);
+  const cliArgs = userInputArgs.reduce((acc, arg, index, arr) => {
+    const valueCandidate = arr[index + 1];
+    if (valueCandidate && arg.startsWith("--")) {
+      const transformedArgs = arg.slice(2);
+      const cliArgumentsTransformed = `${transformedArgs} is ${valueCandidate}`;
+      acc.push(cliArgumentsTransformed);
+    }
+    return acc;
+  }, []);
+  console.log(cliArgs.join(", "));
 };
 
 parseArgs();

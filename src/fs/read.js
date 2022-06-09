@@ -1,12 +1,16 @@
-import fs from 'fs';
+import { readFile } from "fs/promises";
+import { getPathFromFiles } from './../utils/getPathFromFiles.js'
 
 export const read = async () => {
-    // Write your code here
-    await fs.readFile("src/fs/files/hello.txt", "utf8",
-        function (error, data) {
-            if (error) console.error(new Error("FS operation failed"));
-            console.log(data);
-        });
+  const path = getPathFromFiles(import.meta.url, "hello.txt");
+  const message = "FS operation failed";
+
+  try {
+    const data = await readFile(path, "utf8");
+    console.log(data);
+  } catch (err) {
+    throw new Error(message);
+  }
 };
 
 read();
